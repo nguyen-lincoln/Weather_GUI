@@ -40,6 +40,11 @@ def open_image(icon):
 
 
 root = tk.Tk()
+root.title("Weather GUI")
+icon = Image.open('icon.ico')
+iconImg = ImageTk.PhotoImage(icon)
+root.iconphoto(False, iconImg)
+
 
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 canvas.pack()
@@ -52,19 +57,19 @@ bg_label.place(relwidth=1, relheight=1)
 frame = tk.Frame(root, bg='gray', bd=5)
 frame.place(relx=.5, rely=.1, relwidth=0.75, relheight=0.1, anchor='n')
 
-entry = tk.Entry(frame, font=('Courier', 18))
+entry = tk.Entry(frame, font=('Courier', 14))
 entry.place(relwidth=.69, relheight=1)
 
-button = tk.Button(frame, text="GET WEATHER", font=('Courier', 18), command=lambda: get_weather(entry.get()))
+button = tk.Button(frame, text="GET WEATHER", font=('Courier', 14), command=lambda: get_weather(entry.get()))
 button.place(relx=.7, relwidth=.3, relheight=1)
 
 lower_frame = tk.Frame(root, bg='gray', bd=5)
 lower_frame.place(relx=.5, rely=.25, relwidth=.75, relheight=.6, anchor='n')
 
-label = tk.Label(lower_frame, bg='#4a5059', font=('Courier', 20), anchor='w', justify='left')
+label = tk.Label(lower_frame, bg='#606060', font=('Courier', 17), fg='white', anchor='w', justify='left')
 label.place(relwidth=1, relheight=1)
 
-weather_icon = tk.Canvas(label, bg='#4a5059', highlightthickness=0, bd=0)
-weather_icon.place(relx=.75, rely=0, relwidth=1, relheight=.5)
+weather_icon = tk.Canvas(label, bg='#606060', highlightthickness=0, bd=0)
+weather_icon.place(relx=0, rely=0, relwidth=1, relheight=.5)
 
 root.mainloop()
